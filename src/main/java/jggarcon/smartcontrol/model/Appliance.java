@@ -1,4 +1,4 @@
-package jggarcon.smartcontrol.entities;
+package jggarcon.smartcontrol.model;
 
 public interface Appliance {
 
