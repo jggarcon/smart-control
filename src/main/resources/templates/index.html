@@ -2,22 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <title th:text="${title}">Smart Control</title>
+  <title th:text="${title}"></title>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <style>
-    body { font-family: system-ui, Arial, sans-serif; margin: 2rem; }
-    .card { max-width: 720px; padding: 1.25rem; border: 1px solid #ddd; border-radius: 12px; }
-    h1 { margin: 0 0 0.5rem 0; }
-    ul { padding-left: 1.2rem; }
-    li { margin-bottom: 0.5rem; }
-    strong { color: #222; }
-    span { color: #555; }
-  </style>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 <div class="card">
-  <h1 th:text="${title}">Smart Control</h1>
-  <p>Here are your devices:</p>
+  <h2>Medavie's Smart Control Dashboard</h2>
+  <p class="subtitle">Here are your devices:</p>
 
   <ul>
     <li th:each="device : ${devices}">
