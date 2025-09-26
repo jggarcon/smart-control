@@ -7,6 +7,8 @@
   <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+<div class="dashboard-container">
+  <img src="/images/medavie-logo.png" alt="Smart Control Logo" class="dashboard-logo">
 <div class="card">
   <h2>Medavie's Smart Control Dashboard</h2>
   <p class="subtitle">Here are your devices:</p>
@@ -26,7 +28,6 @@
       <th:block th:if="${device.kind == 'Fan'}">
         <form th:action="@{'/fan/' + ${device.id} + '/speed'}" method="post" style="display:inline; margin-left:8px">
           <label th:for="'speed-' + ${device.id}" style="margin-right:6px;">Speed:</label>
-
           <label>
             <input
                     type="range"
@@ -44,7 +45,6 @@
           <span th:id="'speedVal-' + ${device.id}" style="margin-left:6px;" th:text="${device.speed}">0</span>
         </form>
       </th:block>
-
 
       <th:block th:if="${device.kind == 'AirConditioner'}">
         <form th:action="@{'/ac/' + ${device.id} + '/power'}" method="post" style="display:inline; margin-left:8px">
@@ -67,11 +67,9 @@
           </form>
         </th:block>
       </th:block>
-
-
-
     </li>
   </ul>
+</div>
 </div>
 </body>
 </html>
