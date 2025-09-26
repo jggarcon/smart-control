@@ -41,5 +41,14 @@ public class SmartControlService {
             throw new IllegalArgumentException("Light is not on");
         }
     }
+
+    public void setFanSpeed(String id, int speed) {
+        Appliance a = devices.get(id);
+        if (a instanceof Fan fan) {
+            fan.setSpeed(speed);
+        } else {
+            throw new IllegalArgumentException("Device " + id + " is not a Fan");
+        }
+    }
 }
 
