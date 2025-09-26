@@ -41,4 +41,10 @@ public class Light implements Appliance{
     public boolean isOn() {
         return isOn;
     }
+
+    @Override
+    public String getKind() {
+        return "Light";
+    }
+
 }

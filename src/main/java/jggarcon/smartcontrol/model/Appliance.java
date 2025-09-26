@@ -11,4 +11,5 @@ public interface Appliance {
     void turnOff();
 
     String stateLabel();
+    String getKind();
 }

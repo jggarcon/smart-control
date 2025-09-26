@@ -52,4 +52,10 @@ public class Fan implements Appliance {
     public int getSpeed() {
         return speed;
     }
+
+    @Override
+    public String getKind() {
+        return "Fan";
+    }
+
 }

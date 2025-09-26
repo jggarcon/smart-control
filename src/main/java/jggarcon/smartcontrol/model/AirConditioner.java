@@ -27,7 +27,7 @@ public class AirConditioner implements  Appliance{
 
     @Override
     public void turnOn() {
-        mode = Mode.COOL; // default ON mode
+        mode = Mode.COOL;
     }
 
     @Override
@@ -51,4 +51,10 @@ public class AirConditioner implements  Appliance{
     public Mode getMode() {
         return mode;
     }
+
+    @Override
+    public String getKind() {
+        return "AirConditioner";
+    }
+
 }
