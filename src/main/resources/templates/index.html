@@ -21,13 +21,36 @@
 
   <ul>
     <li th:each="device : ${devices}">
+
       <strong th:text="${device.name}">Device Name</strong> —
       <span th:text="${device.stateLabel()}">Device State</span>
+
       <th:block th:if="${device.kind == 'Light'}">
         <form th:action="@{'/light/' + ${device.id} + '/toggle'}" method="post" style="display:inline">
           <button type="submit" th:text="${device.isOn()} ? 'Turn OFF' : 'Turn ON'">Toggle</button>
         </form>
       </th:block>
+
+      <th:block th:if="${device.kind == 'Fan'}">
+        <form th:action="@{'/fan/' + ${device.id} + '/speed'}" method="post" style="display:inline; margin-left:8px">
+          <label th:for="'speed-' + ${device.id}" style="margin-right:6px;">Speed:</label>
+          <label>
+            <input
+                    type="range"
+                    name="speed"
+                    th:id="'speed-' + ${device.id}"
+                    min="0" max="2"
+                    th:value="${device.speed}"
+                    style="vertical-align:middle; width:120px;"
+                    oninput="this.nextElementSibling.innerText = this.value"
+            />
+          </label>
+          <span style="margin-left:6px;" th:text="${device.speed}">0</span>
+          <button type="submit" style="margin-left:6px;">Set</button>
+        </form>
+      </th:block>
+
+
     </li>
   </ul>
 </div>
