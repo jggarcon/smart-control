@@ -2,8 +2,6 @@ package jggarcon.smartcontrol.model;
 
 public class AirConditioner implements  Appliance{
 
-
-
     private final String id;
     private final String name;
     private boolean on;
