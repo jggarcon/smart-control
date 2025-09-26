@@ -1,4 +1,4 @@
-# SmartControl 🏠
+# 🏠 SmartControl
 
 SmartControl is a simple **Spring Boot + Thymeleaf** monolithic web application that simulates controlling smart home devices such as **Lights**, **Fans**, and **Air Conditioners**.
 
