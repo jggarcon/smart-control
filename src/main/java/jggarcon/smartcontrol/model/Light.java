@@ -1,6 +1,6 @@
 package jggarcon.smartcontrol.model;
 
-public class Light implements Appliance{
+public class Light implements Appliance {
 
     private final String id;
     private final String name;

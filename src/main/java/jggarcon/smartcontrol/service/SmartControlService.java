@@ -31,8 +31,8 @@ public class SmartControlService {
 
     public void toggleLight(String id) {
         Appliance a = devices.get(id);
-        if(a instanceof Light light) {
-            if(light.isOn()) {
+        if (a instanceof Light light) {
+            if (light.isOn()) {
                 light.turnOff();
             } else {
                 light.turnOn();
@@ -54,7 +54,8 @@ public class SmartControlService {
     public void setAcPower(String id, boolean on) {
         Appliance a = devices.get(id);
         if (a instanceof AirConditioner ac) {
-            if (on) ac.turnOn(); else ac.turnOff();
+            if (on) ac.turnOn();
+            else ac.turnOff();
         } else {
             throw new IllegalArgumentException("Device " + id + " is not an AirConditioner");
         }

@@ -1,76 +1,80 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <title th:text="${title}"></title>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <link rel="stylesheet" th:href="@{/css/style.css}">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}"></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 <div class="dashboard-container">
-  <img src="/images/medavie-logo.png" alt="Smart Control Logo" class="dashboard-logo">
-  <h2>Medavie's Smart Control Dashboard</h2>
-<div class="card">
+    <img src="/images/medavie-logo.png" alt="Smart Control Logo" class="dashboard-logo">
+    <h2>Medavie's Smart Control Dashboard</h2>
+    <div class="card">
 
-  <p class="subtitle">Here are your devices:</p>
+        <p class="subtitle">Here are your devices:</p>
 
-  <ul>
-    <li th:each="device : ${devices}">
+        <ul>
+            <li th:each="device : ${devices}">
 
-      <strong th:text="${device.name}"></strong> —
-      <span th:text="${device.stateLabel()}"></span>
+                <strong th:text="${device.name}"></strong> —
+                <span th:text="${device.stateLabel()}"></span>
 
-      <th:block th:if="${device.kind == 'Light'}">
-        <form th:action="@{'/light/' + ${device.id} + '/toggle'}" method="post" style="display:inline">
-          <button type="submit" th:text="${device.isOn()} ? 'Turn OFF' : 'Turn ON'">Toggle</button>
-        </form>
-      </th:block>
+                <th:block th:if="${device.kind == 'Light'}">
+                    <form th:action="@{'/light/' + ${device.id} + '/toggle'}" method="post" style="display:inline">
+                        <button type="submit" th:text="${device.isOn()} ? 'Turn OFF' : 'Turn ON'">Toggle</button>
+                    </form>
+                </th:block>
 
-      <th:block th:if="${device.kind == 'Fan'}">
-        <form th:action="@{'/fan/' + ${device.id} + '/speed'}" method="post" style="display:inline; margin-left:8px">
-          <label th:for="'speed-' + ${device.id}" style="margin-right:6px;">Speed:</label>
-          <label>
-            <input
-                    type="range"
-                    name="speed"
-                    th:id="'speed-' + ${device.id}"
-                    min="0" max="2"
-                    th:value="${device.speed}"
-                    style="vertical-align:middle; width:120px;"
-                    oninput="document.getElementById(this.dataset.target).textContent = this.value"
-                    onchange="this.form.submit()"
-                    th:attr="data-target=${'speedVal-' + device.id}"
-            />
-          </label>
+                <th:block th:if="${device.kind == 'Fan'}">
+                    <form th:action="@{'/fan/' + ${device.id} + '/speed'}" method="post"
+                          style="display:inline; margin-left:8px">
+                        <label th:for="'speed-' + ${device.id}" style="margin-right:6px;">Speed:</label>
+                        <label>
+                            <input
+                                    type="range"
+                                    name="speed"
+                                    th:id="'speed-' + ${device.id}"
+                                    min="0" max="2"
+                                    th:value="${device.speed}"
+                                    style="vertical-align:middle; width:120px;"
+                                    oninput="document.getElementById(this.dataset.target).textContent = this.value"
+                                    onchange="this.form.submit()"
+                                    th:attr="data-target=${'speedVal-' + device.id}"
+                            />
+                        </label>
 
-          <span th:id="'speedVal-' + ${device.id}" style="margin-left:6px;" th:text="${device.speed}">0</span>
-        </form>
-      </th:block>
+                        <span th:id="'speedVal-' + ${device.id}" style="margin-left:6px;"
+                              th:text="${device.speed}">0</span>
+                    </form>
+                </th:block>
 
-      <th:block th:if="${device.kind == 'AirConditioner'}">
-        <form th:action="@{'/ac/' + ${device.id} + '/power'}" method="post" style="display:inline; margin-left:8px">
-          <button type="submit" name="on" value="true"  th:disabled="${device.on}">On</button>
-          <button type="submit" name="on" value="false" th:disabled="${!device.on}">Off</button>
-        </form>
+                <th:block th:if="${device.kind == 'AirConditioner'}">
+                    <form th:action="@{'/ac/' + ${device.id} + '/power'}" method="post"
+                          style="display:inline; margin-left:8px">
+                        <button type="submit" name="on" value="true" th:disabled="${device.on}">On</button>
+                        <button type="submit" name="on" value="false" th:disabled="${!device.on}">Off</button>
+                    </form>
 
-        <th:block th:if="${device.on}">
-          <form th:action="@{'/ac/' + ${device.id} + '/temperature'}" method="post" style="display:inline; margin-left:8px">
-            <label th:for="'temp-' + ${device.id}">Temp (°C):</label>
-            <input
-                    type="number"
-                    name="temp"
-                    min="16" max="30"
-                    th:id="'temp-' + ${device.id}"
-                    th:value="${device.temperatureC}"
-                    onchange="this.form.submit()"
-                    style="width:60px;"
-            />
-          </form>
-        </th:block>
-      </th:block>
-    </li>
-  </ul>
-</div>
+                    <th:block th:if="${device.on}">
+                        <form th:action="@{'/ac/' + ${device.id} + '/temperature'}" method="post"
+                              style="display:inline; margin-left:8px">
+                            <label th:for="'temp-' + ${device.id}">Temp (°C):</label>
+                            <input
+                                    type="number"
+                                    name="temp"
+                                    min="16" max="30"
+                                    th:id="'temp-' + ${device.id}"
+                                    th:value="${device.temperatureC}"
+                                    onchange="this.form.submit()"
+                                    style="width:60px;"
+                            />
+                        </form>
+                    </th:block>
+                </th:block>
+            </li>
+        </ul>
+    </div>
 </div>
 </body>
 </html>

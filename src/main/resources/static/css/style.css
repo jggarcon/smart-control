@@ -26,6 +26,7 @@ html, body {
     height: 100%;
     margin: 0;
 }
+
 body {
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     background: var(--bg);
@@ -41,7 +42,7 @@ body {
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 24px 28px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
     width: 92vw;
     max-width: 780px;
     margin: 0 auto;
@@ -59,6 +60,7 @@ h1 {
     font-weight: bold;
     text-align: center;
 }
+
 .subtitle {
     color: var(--muted);
     margin-bottom: 18px;
@@ -72,6 +74,7 @@ ul {
     padding-left: 0;
     list-style: none;
 }
+
 li {
     margin-bottom: 14px;
     font-weight: 600;
@@ -85,10 +88,12 @@ button {
     padding: 6px 12px;
     cursor: pointer;
 }
+
 button[disabled] {
     background: var(--button-bg-disabled);
     cursor: not-allowed;
 }
+
 input[type="range"],
 input[type="number"] {
     width: 140px;
@@ -99,9 +104,17 @@ input[type="number"] {
     color: var(--text);
 }
 
-.ml-2 { margin-left: 8px; }
-.ml-3 { margin-left: 12px; }
-.inline { display: inline; }
+.ml-2 {
+    margin-left: 8px;
+}
+
+.ml-3 {
+    margin-left: 12px;
+}
+
+.inline {
+    display: inline;
+}
 
 
 .device {
@@ -129,15 +142,37 @@ input[type="number"] {
 }
 
 @media (max-width: 600px) {
-    .card { padding: 18px 16px; }
-    .card h2 { font-size: 1.25rem; }
-    .subtitle { font-size: .95rem; }
+    .card {
+        padding: 18px 16px;
+    }
 
-    .device .controls { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
-    .device .controls form { display: contents; }
+    .card h2 {
+        font-size: 1.25rem;
+    }
 
-    input[type="range"] { width: 100%; }
-    input[type="number"] { width: 100%; }
+    .subtitle {
+        font-size: .95rem;
+    }
 
-    button { padding: 6px 10px; }
+    .device .controls {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 8px;
+    }
+
+    .device .controls form {
+        display: contents;
+    }
+
+    input[type="range"] {
+        width: 100%;
+    }
+
+    input[type="number"] {
+        width: 100%;
+    }
+
+    button {
+        padding: 6px 10px;
+    }
 }

@@ -1,6 +1,6 @@
 package jggarcon.smartcontrol.model;
 
-public class AirConditioner implements  Appliance{
+public class AirConditioner implements Appliance {
 
     private final String id;
     private final String name;
@@ -13,14 +13,26 @@ public class AirConditioner implements  Appliance{
         this.on = false;
         this.temperatureCelsius = 22;
     }
-    @Override public String getId() { return id; }
-    @Override public String getName() { return name; }
 
     @Override
-    public void turnOn() { this.on = true; }
+    public String getId() {
+        return id;
+    }
 
     @Override
-    public void turnOff() { this.on = false; }
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void turnOn() {
+        this.on = true;
+    }
+
+    @Override
+    public void turnOff() {
+        this.on = false;
+    }
 
     @Override
     public String stateLabel() {
@@ -29,11 +41,17 @@ public class AirConditioner implements  Appliance{
     }
 
     @Override
-    public String getKind() { return "AirConditioner"; }
+    public String getKind() {
+        return "AirConditioner";
+    }
 
-    public boolean isOn() { return on; }
+    public boolean isOn() {
+        return on;
+    }
 
-    public int getTemperatureC() { return temperatureCelsius; }
+    public int getTemperatureC() {
+        return temperatureCelsius;
+    }
 
     public void setTemperatureC(int temperatureC) {
         if (temperatureC < 16 || temperatureC > 30) {
