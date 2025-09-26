@@ -48,3 +48,9 @@ docker-compose up --build -d
 
 Visit http://localhost:8080/
 ```
+
+## 🌐 Run on the Web
+
+You can try the project online here:
+
+[![Live Demo](https://img.shields.io/badge/Launch_App-Click_Here-0078D7?style=for-the-badge&logo=vercel)](https://smart-control.onrender.com)
