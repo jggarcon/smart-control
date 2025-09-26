@@ -37,7 +37,7 @@ SmartControl is a simple **Spring Boot + Thymeleaf** monolithic web application 
 
 ```bash
 # clone repo
-git clone https://github.com/YOUR_USERNAME/smart-control.git
+git clone https://github.com/jggarcon/smart-control.git
 cd smart-control
 
 # build and run
