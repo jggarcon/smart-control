@@ -20,7 +20,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("title", "Smart Control");
+        model.addAttribute("title", "Medavie's Smart Control Dashboard");
         model.addAttribute("devices", smartControlService.getAll());
         return "index";
     }
