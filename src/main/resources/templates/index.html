@@ -22,8 +22,8 @@
   <ul>
     <li th:each="device : ${devices}">
 
-      <strong th:text="${device.name}">Device Name</strong> —
-      <span th:text="${device.stateLabel()}">Device State</span>
+      <strong th:text="${device.name}"></strong> —
+      <span th:text="${device.stateLabel()}"></span>
 
       <th:block th:if="${device.kind == 'Light'}">
         <form th:action="@{'/light/' + ${device.id} + '/toggle'}" method="post" style="display:inline">
@@ -52,6 +52,31 @@
           <span th:id="'speedVal-' + ${device.id}" style="margin-left:6px;" th:text="${device.speed}">0</span>
         </form>
       </th:block>
+
+
+      <th:block th:if="${device.kind == 'AirConditioner'}">
+        <form th:action="@{'/ac/' + ${device.id} + '/power'}" method="post" style="display:inline; margin-left:8px">
+          <button type="submit" name="on" value="true"  th:disabled="${device.on}">On</button>
+          <button type="submit" name="on" value="false" th:disabled="${!device.on}">Off</button>
+        </form>
+
+        <th:block th:if="${device.on}">
+          <form th:action="@{'/ac/' + ${device.id} + '/temperature'}" method="post" style="display:inline; margin-left:8px">
+            <label th:for="'temp-' + ${device.id}">Temp (°C):</label>
+            <input
+                    type="number"
+                    name="temp"
+                    min="16" max="30"
+                    th:id="'temp-' + ${device.id}"
+                    th:value="${device.temperatureC}"
+                    onchange="this.form.submit()"
+                    style="width:60px;"
+            />
+          </form>
+        </th:block>
+      </th:block>
+
+
 
     </li>
   </ul>
