@@ -37,4 +37,8 @@ public class Light implements Appliance{
     public String stateLabel() {
         return isOn ? "Light is ON" : "Light is OFF";
     }
+
+    public boolean isOn() {
+        return isOn;
+    }
 }
