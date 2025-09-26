@@ -30,19 +30,20 @@ body {
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
-
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    padding: 16px;
 }
 
 .card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 28px 32px;
+    padding: 24px 28px;
     box-shadow: 0 4px 14px rgba(0,0,0,0.3);
-    width: 780px;
+    width: 92vw;
+    max-width: 780px;
     margin: 0 auto;
 }
 
@@ -113,13 +114,30 @@ input[type="number"] {
 }
 
 .dashboard-container {
+    width: 100%;
+    max-width: 900px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    gap: 16px;
 }
 
 .dashboard-logo {
+    width: 50vw;
     max-width: 500px;
+    height: auto;
+}
+
+@media (max-width: 600px) {
+    .card { padding: 18px 16px; }
+    .card h2 { font-size: 1.25rem; }
+    .subtitle { font-size: .95rem; }
+
+    .device .controls { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
+    .device .controls form { display: contents; }
+
+    input[type="range"] { width: 100%; }
+    input[type="number"] { width: 100%; }
+
+    button { padding: 6px 10px; }
 }
